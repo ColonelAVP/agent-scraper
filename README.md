@@ -104,3 +104,9 @@ This application is deployed on Render. You can access it using the link below: 
 - **BeautifulSoup**: For scraping HTML content.
 - **SpaCy**: For natural language processing.
 - **OpenCage Geocoder**: For location parsing and geocoding.
+
+##  Postman Collection
+A Postman collection is included in this repository with pre-configured examples of scraping known companies’ websites.
+
+- Import the collection into Postman to test the API with real-world scenarios.
+- Includes headers, body examples, and expected responses.
