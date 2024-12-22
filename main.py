@@ -8,7 +8,7 @@ from geopy.geocoders import Nominatim
 from opencage.geocoder import OpenCageGeocode
 import os
 from dotenv import load_dotenv
-
+from spacy.matcher import Matcher
 # Load environment variables
 load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY", "default_key")
@@ -111,6 +111,43 @@ def extract_locations(doc) -> list:
     gpe_entities = [ent.text for ent in doc.ents if ent.label_ == "GPE"]
     return parse_with_opencage(gpe_entities)
 
+def extract_company_size(doc) -> str:
+    """
+    Extracts the company size using spaCy's NER and rule-based matching.
+
+    Args:
+        doc (spacy.tokens.Doc): Processed spaCy doc.
+
+    Returns:
+        str: Detected company size ('Small', 'Medium', 'Large', or 'Unknown').
+    """
+    matcher = Matcher(nlp.vocab)
+
+    # Define patterns for explicit mentions
+    patterns = [
+        [{"LOWER": "team"}, {"LOWER": "of"}, {"IS_DIGIT": True}, {"LOWER": "people"}],
+        [{"IS_DIGIT": True}, {"LOWER": "employees"}],
+        [{"IS_DIGIT": True}, {"LOWER": "staff"}],
+        [{"LOWER": "over"}, {"IS_DIGIT": True}, {"LOWER": "employees"}],
+        [{"LOWER": "fewer"}, {"LOWER": "than"}, {"IS_DIGIT": True}, {"LOWER": "employees"}],
+    ]
+    matcher.add("COMPANY_SIZE", patterns)
+
+    matches = matcher(doc)
+    for match_id, start, end in matches:
+        span = doc[start:end]
+        size = int("".join(filter(str.isdigit, span.text)))  # Extract the number
+
+        # Categorize size
+        if size < 50:
+            return "Small"
+        elif size < 500:
+            return "Medium"
+        else:
+            return "Large"
+
+    # If no explicit match is found
+    return "Unknown"
 
 def parse_with_opencage(locations: list) -> list:
     """
@@ -194,6 +231,40 @@ def extract_contact_info(html: str) -> dict:
 
     return contact_info
 
+def extract_tagline(html: str) -> str:
+    """
+    Extracts the tagline or mission statement from the HTML content.
+
+    Args:
+        html (str): The raw HTML content of the webpage.
+
+    Returns:
+        str: The extracted tagline or 'Unknown' if not found.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+
+    # Define a list of generic words to ignore
+    generic_words = {"home", "welcome", "contact", "about"}
+
+    # Step 1: Extract from headers (h1, h2, h3)
+    for tag in ["h1", "h2", "h3"]:
+        header = soup.find(tag)
+        if header:
+            text = header.get_text(strip=True)
+            if text.lower() not in generic_words and len(text.split()) > 1:  # Avoid generic or too-short text
+                return text
+
+    # Step 2: Extract from title tag
+    title = soup.title.string.strip() if soup.title else None
+    if title and title.lower() not in generic_words and len(title.split()) > 1:
+        return title
+
+    # Step 3: Extract from meta description
+    meta_desc = soup.find("meta", attrs={"name": "description"})
+    if meta_desc and meta_desc.get("content"):
+        return meta_desc["content"].strip()
+
+    return "Unknown"
 
 @app.post("/scrape", response_model=ScrapeResponse)
 def scrape_homepage(request: ScrapeRequest, authorization: str = Header(None)):
@@ -211,9 +282,9 @@ def scrape_homepage(request: ScrapeRequest, authorization: str = Header(None)):
             company_name=extract_company_name(doc, cleaned_text, html_content),
             locations=extract_locations(doc),
             industry=determine_specific_industry(doc, cleaned_text, industry_keywords)["top_industry"],
-            industry_size="Unknown",  # Could be extended with logic
+            industry_size=extract_company_size(doc),
             contact_info=extract_contact_info(html_content),
-            tagline="Unknown",  # Could use logic if needed
+            tagline=extract_tagline(html_content),
         )
     except HTTPException as e:
         raise e
