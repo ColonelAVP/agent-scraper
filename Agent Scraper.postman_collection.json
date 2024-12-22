@@ -1,0 +1,439 @@
+{
+	"info": {
+		"_postman_id": "babb4344-26ea-4ff3-9289-61cc03fe4321",
+		"name": "Agent Scraper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40581109"
+	},
+	"item": [
+		{
+			"name": "Scrape and get Info",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "f1r3ab13",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://www.proemsports.com/\"\r\n    // \"url\": \"https://firmable.com/\"\r\n    // \"url\": \"https://www.moengage.com/\"\r\n    // \"url\": \"https://clevertap.com/\"\r\n    // \"url\": \"https://cred.club/\"\r\n    // \"url\": \"https://www.meragi.com/\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/scrape",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"scrape"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Moengage",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "4599",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"url\": \"https://simpleviralgames.com/\"\r\n    // \"url\": \"https://www.proemsports.com/\"\r\n    // \"url\":\"https://www.doqfy.in/\"\r\n    // \"url\": \"https://www.marshall.com/in/en\"\r\n    // \"url\": \"https://firmable.com/\"\r\n    // \"url\":\"https://www.blaze.ai/\"\r\n    \"url\": \"https://www.moengage.com/\"\r\n    // \"url\": \"https://clevertap.com/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/scrape",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"scrape"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 21 Dec 2024 20:55:48 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "340"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"company_name\": \"MoEngage\",\n    \"locations\": [\n        {\n            \"city\": \"Hulunbuir\",\n            \"country\": \"China\"\n        },\n        {\n            \"city\": \"Witten\",\n            \"country\": \"Germany\"\n        },\n        {\n            \"country\": \"India\"\n        },\n        {\n            \"country\": \"Switzerland\"\n        },\n        {\n            \"country\": \"Australia\"\n        }\n    ],\n    \"industry\": \"technology\",\n    \"industry_size\": \"Unknown\",\n    \"contact_info\": {\n        \"emails\": [],\n        \"phones\": []\n    },\n    \"tagline\": \"Build Stronger Relationships With Your Customers\"\n}"
+				},
+				{
+					"name": "Proem Sports",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "4599",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"url\": \"https://simpleviralgames.com/\"\r\n    \"url\": \"https://www.proemsports.com/\"\r\n    // \"url\":\"https://www.doqfy.in/\"\r\n    // \"url\": \"https://www.marshall.com/in/en\"\r\n    // \"url\": \"https://firmable.com/\"\r\n    // \"url\":\"https://www.blaze.ai/\"\r\n    // \"url\": \"https://www.moengage.com/\"\r\n    // \"url\": \"https://clevertap.com/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/scrape",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"scrape"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 21 Dec 2024 21:05:55 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "277"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"company_name\": \"Proem Sports\",\n    \"locations\": [\n        {\n            \"country\": \"India\"\n        },\n        {\n            \"city\": \"Bengaluru\",\n            \"country\": \"India\"\n        },\n        {\n            \"country\": \"Singapore\"\n        }\n    ],\n    \"industry\": \"engagement, data platforms\",\n    \"industry_size\": \"Unknown\",\n    \"contact_info\": {\n        \"emails\": [],\n        \"phones\": []\n    },\n    \"tagline\": \"Know yourFans.Growyour Brand.\"\n}"
+				},
+				{
+					"name": "Firmable",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "4599",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"url\": \"https://simpleviralgames.com/\"\r\n    // \"url\": \"https://www.proemsports.com/\"\r\n    // \"url\":\"https://www.doqfy.in/\"\r\n    // \"url\": \"https://www.marshall.com/in/en\"\r\n    \"url\": \"https://firmable.com/\"\r\n    // \"url\":\"https://www.blaze.ai/\"\r\n    // \"url\": \"https://www.moengage.com/\"\r\n    // \"url\": \"https://clevertap.com/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/scrape",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"scrape"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 21 Dec 2024 21:06:14 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "230"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"company_name\": \"Firmable\",\n    \"locations\": [\n        {\n            \"country\": \"United States\"\n        },\n        {\n            \"country\": \"Australia\"\n        }\n    ],\n    \"industry\": \"finance, healthcare\",\n    \"industry_size\": \"Unknown\",\n    \"contact_info\": {\n        \"emails\": [],\n        \"phones\": []\n    },\n    \"tagline\": \"USE CASES FOR EVERY TEAM\"\n}"
+				},
+				{
+					"name": "CleverTap",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "4599",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"url\": \"https://simpleviralgames.com/\"\r\n    // \"url\": \"https://www.proemsports.com/\"\r\n    // \"url\":\"https://www.doqfy.in/\"\r\n    // \"url\": \"https://www.marshall.com/in/en\"\r\n    // \"url\": \"https://firmable.com/\"\r\n    // \"url\":\"https://www.blaze.ai/\"\r\n    // \"url\": \"https://www.moengage.com/\"\r\n    \"url\": \"https://clevertap.com/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/scrape",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"scrape"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 21 Dec 2024 21:06:38 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "813"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"company_name\": \"CleverTap\",\n    \"locations\": [\n        {\n            \"city\": \"Clever\",\n            \"country\": \"United States of America\"\n        },\n        {\n            \"city\": \"San Francisco\",\n            \"country\": \"United States\"\n        },\n        {\n            \"city\": \"Special capital Region of Jakarta\",\n            \"country\": \"Indonesia\"\n        },\n        {\n            \"country\": \"Vietnam\"\n        },\n        {\n            \"city\": \"Mumbai\",\n            \"country\": \"India\"\n        },\n        {\n            \"country\": \"India\"\n        },\n        {\n            \"city\": \"Bengaluru\",\n            \"country\": \"India\"\n        },\n        {\n            \"city\": \"Amsterdam\",\n            \"country\": \"Netherlands\"\n        },\n        {\n            \"city\": \"Sofia\",\n            \"country\": \"Bulgaria\"\n        },\n        {\n            \"country\": \"Brazil\"\n        },\n        {\n            \"city\": \"Clever\",\n            \"country\": \"United States\"\n        },\n        {\n            \"city\": \"Dubai\",\n            \"country\": \"United Arab Emirates\"\n        },\n        {\n            \"city\": \"London\",\n            \"country\": \"United Kingdom\"\n        },\n        {\n            \"country\": \"United States\"\n        },\n        {\n            \"city\": \"New York\",\n            \"country\": \"United States\"\n        },\n        {\n            \"country\": \"Singapore\"\n        }\n    ],\n    \"industry\": \"finance\",\n    \"industry_size\": \"Unknown\",\n    \"contact_info\": {\n        \"emails\": [],\n        \"phones\": []\n    },\n    \"tagline\": \"Unlock LimitlessCustomer Lifetime Value\"\n}"
+				},
+				{
+					"name": "Cred",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "f1r3ab13",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"url\": \"https://simpleviralgames.com/\"\r\n    // \"url\": \"https://www.proemsports.com/\"\r\n    // \"url\":\"https://www.doqfy.in/\"\r\n    // \"url\": \"https://www.marshall.com/in/en\"\r\n    // \"url\": \"https://firmable.com/\"\r\n    // \"url\":\"https://www.blaze.ai/\"\r\n    // \"url\": \"https://www.moengage.com/\"\r\n    // \"url\": \"https://clevertap.com/\"\r\n    \"url\": \"https://cred.club/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/scrape",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"scrape"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 22 Dec 2024 15:14:59 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "168"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"company_name\": \"CRED\",\n    \"locations\": [\n        {\n            \"country\": \"India\"\n        }\n    ],\n    \"industry\": \"technology\",\n    \"industry_size\": \"Unknown\",\n    \"contact_info\": {\n        \"emails\": [],\n        \"phones\": []\n    },\n    \"tagline\": \"Unknown\"\n}"
+				},
+				{
+					"name": "Meragi",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "f1r3ab13",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"url\": \"https://simpleviralgames.com/\"\r\n    // \"url\": \"https://www.proemsports.com/\"\r\n    // \"url\":\"https://www.doqfy.in/\"\r\n    // \"url\": \"https://www.marshall.com/in/en\"\r\n    // \"url\": \"https://firmable.com/\"\r\n    // \"url\":\"https://www.blaze.ai/\"\r\n    // \"url\": \"https://www.moengage.com/\"\r\n    // \"url\": \"https://clevertap.com/\"\r\n    // \"url\": \"https://cred.club/\"\r\n    \"url\": \"https://www.meragi.com/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/scrape",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"scrape"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 22 Dec 2024 15:18:53 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "336"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"company_name\": \"Meragi\",\n    \"locations\": [\n        {\n            \"country\": \"India\"\n        },\n        {\n            \"country\": \"India\"\n        },\n        {\n            \"city\": \"Bengaluru\",\n            \"country\": \"India\"\n        },\n        {\n            \"city\": \"Suita\",\n            \"country\": \"Japan\"\n        },\n        {\n            \"city\": \"Mysuru\",\n            \"country\": \"India\"\n        }\n    ],\n    \"industry\": \"technology\",\n    \"industry_size\": \"Unknown\",\n    \"contact_info\": {\n        \"emails\": [\n            \"contact@meragi.com\"\n        ],\n        \"phones\": [\n            \"+91 9157935948\"\n        ]\n    },\n    \"tagline\": \"Unknown\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"key": "host",
+			"value": "https://agent-scraper.onrender.com",
+			"type": "string"
+		}
+	]
+}
