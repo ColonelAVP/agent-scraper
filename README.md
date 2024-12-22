@@ -68,7 +68,7 @@ This application is deployed on Render. You can access it using the link below: 
   ```
   
 - Headers
-Authorization: Must include the secret key.
+**Authorization**: Must include the secret key.
 
 #### Request Body
 ```
