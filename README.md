@@ -1,4 +1,4 @@
-# Agent Scraper (AI-Based Website Scraper API)
+📌 # Agent Scraper (AI-Based Website Scraper) 📝
 
 This is a FastAPI-based application that scrapes website homepage content and extracts the following information:
 - **Industry**
@@ -17,7 +17,7 @@ The application is secured with an Authorization header and returns structured J
 
 ---
 
-## Requirements
+## Requirements ♻️
 - **Python 3.10+**
 - **Docker** (optional for containerized deployment)
 - API keys for secure authentication and geolocation services.
@@ -26,38 +26,38 @@ The application is secured with an Authorization header and returns structured J
 
 ## Setup Instructions
 
-### 1. Clone the Repository
+### 1️⃣ Clone the Repository
 ```bash
 git clone <repository_url>
 cd <repository_name>
 ```
 
-### 2. Create a Virtual Environment
+### 2️⃣ Create a Virtual Environment
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-### 3. Install Dependencies
+### 3️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Set Environment Variables
+### 4️⃣ Set Environment Variables
 Create a .env file in the root directory with the following content:
 ```bash
 SECRET_KEY=<your_secret_key>
 OPENCAGE_API_KEY=<your_opencage_api_key>
 ```
 
-### 5. Run the Application
+### 5️⃣ Run the Application
 ```bash
 uvicorn main:app --reload
 ```
 
 ## Deployment
-This application is deployed on Render. You can access it using the link below: [Live](https://agent-scraper.onrender.com/)
+This application is deployed on Render. You can access it using the link ➡️ [Live](https://agent-scraper.onrender.com/)
 It usually takes 50 seconds to load because the server goes in dormant state due to free tier.
 
 ---
@@ -108,4 +108,4 @@ It usually takes 50 seconds to load because the server goes in dormant state due
 ##  Postman Collection
 A Postman collection is included in this repository with pre-configured examples of scraping known companies’ websites.
 - Import the collection into Postman to test the API with real-world scenarios.
-- Includes headers, body examples, and expected responses.
+- Includes headers, body examples, and expected responses. 🔚
